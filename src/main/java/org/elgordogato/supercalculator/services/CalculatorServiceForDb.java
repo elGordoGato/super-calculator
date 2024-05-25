@@ -6,6 +6,8 @@ import org.elgordogato.supercalculator.repositories.CalculationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("CalculatorServiceForDb")
 @Transactional
 @RequiredArgsConstructor
@@ -15,5 +17,10 @@ public class CalculatorServiceForDb extends CalculatorService {
     @Override
     public Calculation save(Calculation calculation) {
         return repository.save(calculation);
+    }
+
+    @Override
+    public List<Double> getResults() {
+        return repository.findAllResults();
     }
 }

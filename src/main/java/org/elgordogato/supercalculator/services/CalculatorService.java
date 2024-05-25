@@ -26,6 +26,8 @@ public abstract class CalculatorService {
         return save(calculation).getResult();
     }
 
+    public abstract List<Double> getResults();
+
     protected abstract Calculation save(Calculation calculation);
 
     private Double mulAndAdd(List<Double> numbers) {

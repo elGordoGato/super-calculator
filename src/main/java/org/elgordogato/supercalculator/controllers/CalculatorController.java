@@ -26,4 +26,10 @@ public class CalculatorController {
         log.info("Received request to perform operation: {} with numbers: {}", operation, numbers);
         return calculatorService.calculate(operation, numbers);
     }
+
+    @GetMapping
+    public List<Double> getResults() {
+        log.info("Received request to get all results of calculations");
+        return calculatorService.getResults();
+    }
 }
