@@ -1,4 +1,5 @@
 # **Super calculator**
+
 <details><summary><strong>Операции:</strong></summary>
 
 1) Сложение 2х и более чисел
@@ -11,11 +12,11 @@
 
 Приложение может сохранять результат либо в файл, либо в БД.
 Режим работы определяется параметром `calculator.qualifier` в `application.yml`:
+
 - `CalculatorServiceForDb` - для работы с БД;
 - `CalculatorServiceForFile` - для работы с файлом;
 
 При работе с файлом указать название файла в `calculator.filePath` или передать в аргументе командной строки.
-
 
 ### Стек:
 
@@ -28,27 +29,32 @@
 [Документация OpenAPI (swagger)](http://localhost:8080/swagger-ui.html)
 
 Пример запроса:
->`curl -X 'POST' \
->'http://localhost:8080/calculate/add' \
->-H 'accept: */*' \
->-H 'Content-Type: application/json' \
->-d '[
->1,2,7
->]'`
+> `curl -X 'POST' \
+> 'http://localhost:8080/calculate/add' \
+> -H 'accept: */*' \
+> -H 'Content-Type: application/json' \
+> -d '[
+> 1,2,7
+> ]'`
 
 ---
 
 ### Примеры запуска локально с аргументами:
-1) Собрать jar     
+
+1) Собрать jar
+
 > mvn clean package
 
 2) #### Для записи в файл:
-      > java -jar target/super-calculator-0.0.1-SNAPSHOT.jar  --spring.profiles.active=test --calculator.qualifier=CalculatorServiceForFile --calculator.filePath=output.txt
-       
-      Файл будет находиться по пути: `file/output.txt`
+   > java -jar target/super-calculator-0.0.1-SNAPSHOT.jar --spring.profiles.active=test
+   --calculator.qualifier=CalculatorServiceForFile --calculator.filePath=output.txt
+
+   Файл будет находиться по пути: `file/output.txt`
 
 - #### Для записи в БД:
->  java -jar target/super-calculator-0.0.1-SNAPSHOT.jar  --spring.profiles.active=test --calculator.qualifier=CalculatorServiceForDb
+
+> java -jar target/super-calculator-0.0.1-SNAPSHOT.jar --spring.profiles.active=test
+> --calculator.qualifier=CalculatorServiceForDb
 ---
 
 ### Запуск дев среды
